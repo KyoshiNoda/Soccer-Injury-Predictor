@@ -1,12 +1,9 @@
-# app.py
 from data.players import *
 from data.weather import *
 from dotenv import load_dotenv
 
 load_dotenv()
 
-prem = league_player_data("EPL", "2022")  # Specify the year if needed
-salah_id = prem[200]['id']
-salah = get_player_shot_data(salah_id)
-
-print(get_weather_forecast())
+prem_df = league_player_data("EPL", "2022")
+salah = prem_df.iloc[3]
+# print(get_weather_forecast())
