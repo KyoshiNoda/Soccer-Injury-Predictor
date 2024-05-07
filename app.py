@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 prem_df = league_player_data("EPL", "2022")
-salah = prem_df.iloc[3]
 
 
 # Sample data as a string
@@ -19,10 +18,11 @@ parsed_data = parse_data(data_str)
 df_players = create_players_dataframe(parsed_data)
 df_transfers = create_transfers_dataframe(parsed_data)
 df_injuries = create_injuries_dataframe(parsed_data)
+prem_df = league_player_data("EPL", "2022")
 
-print(df_players.head())
-print(df_transfers.head())
-print(df_injuries.head())
+print(df_players)
+print(df_transfers)
+print(df_injuries)
+print(prem_df)
 
-
-# get_weather_forecast()
+# print(get_weather_forecast())
