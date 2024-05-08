@@ -13,5 +13,5 @@ weather_data = get_weather_forecast()
 
 df_players, df_past_teams, df_injuries = create_players_dataframe(parsed_data)
 
-print(tabulate(df_players, headers=df_players.columns,
+print(tabulate(df_players.head(100), headers='keys',
       tablefmt='psql', showindex=False))
