@@ -40,17 +40,59 @@ def parse_data(data_str):
 
 def create_players_dataframe(data):
     try:
+        # Main player information
         players_info = [
-            [player[0], player[1].strip(), player[2], player[3], player[4], player[5],
-             player[6].strip(), player[7], player[8], player[9]]
+            [
+                player[0],
+                player[1].strip() if player[1] else '',
+                player[2],
+                player[3],
+                player[4],
+                player[5],
+                player[6].strip() if player[6] else '',
+                player[7],
+                player[8],
+                player[9]
+            ]
             for player in data
         ]
-        df = pd.DataFrame(players_info, columns=[
-                          'ID', 'Name', 'Team', 'Value', 'DOB', 'Rating', 'Height', 'Nationality', 'Position', 'Foot'])
-        return tabulate(df, headers='keys', tablefmt='psql', showindex=False)
+        df_players = pd.DataFrame(players_info, columns=[
+            'ID', 'Name', 'Team', 'Value', 'DOB', 'Rating', 'Height', 'Nationality', 'Position', 'Foot'
+        ])
+
+        # Past teams
+        past_teams_data = []
+        for player in data:
+            player_id = player[0]
+            player_name = player[1].strip() if player[1] else ''
+            if player[10]:
+                for team in player[10]:
+                    past_teams_data.append(
+                        [player_id, player_name] + list(team))
+
+        df_past_teams = pd.DataFrame(past_teams_data, columns=[
+            'ID', 'Name', 'Current Team', 'New Team', 'Season', 'Date'
+        ])
+
+        # Injuries
+        injuries_data = []
+        for player in data:
+            player_id = player[0]
+            player_name = player[1].strip() if player[1] else ''
+            if player[11]:
+                for injury in player[11]:
+                    injuries_data.append(
+                        [player_id, player_name] + list(injury))
+
+        df_injuries = pd.DataFrame(injuries_data, columns=[
+            'ID', 'Name', 'Season', 'Injury Type', 'Absences'
+        ])
+
+        return df_players, df_past_teams, df_injuries
+
     except Exception as e:
-        logging.error(f"Failed to create players dataframe: {e}")
-        return pd.DataFrame()
+        logging.error(f"Failed to create dataframes: {e}")
+        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
 
 def create_transfers_dataframe(data):
