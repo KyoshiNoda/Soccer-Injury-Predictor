@@ -22,13 +22,29 @@ def get_player_shot_data(player_id):
 
 def league_player_data(league, year):
     try:
-        league_data = understat.league(league=str(
-            league)).get_player_data(season=str(year))
-        df = pd.DataFrame(league_data)
-        return tabulate(df, headers=df.columns, tablefmt='psql', showindex=False)
+        league_data = understat.league(
+            league=league).get_player_data(season=year)
+        return pd.DataFrame(league_data)
     except Exception as e:
         logging.error(f"Failed to get league player data: {e}")
         return pd.DataFrame()
+
+
+def get_match_data(team, date):
+    try:
+        match_data = understat.team(team=team).get_match_data(season=date)
+        return pd.DataFrame(match_data)
+    except Exception as e:
+        logging.error(f"Failed to get match data: {e}")
+        return pd.DataFrame()
+
+
+def get_upcoming_match(df):
+    upcoming_matches = df[df['isResult'] == False]
+    if not upcoming_matches.empty:
+        return upcoming_matches.iloc[0]
+    else:
+        return "No upcoming matches found"
 
 
 def parse_data(data_str):
@@ -70,7 +86,7 @@ def create_transfers_dataframe(data):
                 transfers.append(
                     [player_id, from_club.strip(), to_club.strip(), season, date])
         df = pd.DataFrame(transfers, columns=[
-                          'Player ID', 'From Club', 'To Club', 'Season', 'Date'])
+            'Player ID', 'From Club', 'To Club', 'Season', 'Date'])
         return tabulate(df, headers='keys', tablefmt='psql', showindex=False)
     except Exception as e:
         logging.error(f"Failed to create transfers dataframe: {e}")
@@ -86,7 +102,7 @@ def create_injuries_dataframe(data):
                 season, description, days = injury
                 injuries.append([player_id, season, description.strip(), days])
         df = pd.DataFrame(injuries, columns=[
-                          'Player ID', 'Season', 'Injury', 'Days Missed'])
+            'Player ID', 'Season', 'Injury', 'Days Missed'])
         return tabulate(df, headers='keys', tablefmt='psql', showindex=False)
     except Exception as e:
         logging.error(f"Failed to create injuries dataframe: {e}")

@@ -15,6 +15,7 @@ def parse_player_info(data):
         for player in data
     ]
 
+
 def parse_past_teams(data):
     past_teams_data = []
     for player in data:
@@ -35,3 +36,7 @@ def parse_injury_history(data):
             for injury in player[11]:
                 injuries_data.append([player_id, player_name] + list(injury))
     return injuries_data
+
+
+def transform_team_name(team_name):
+    return team_name.replace(' ', '_')
