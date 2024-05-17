@@ -12,21 +12,22 @@ def weather_prediction(match_day):
         match_day[0], '%Y-%m-%d %H:%M:%S')
     date_diff = match_day_datetime - datetime.datetime.today()
     if date_diff.days < 5:
-        print(get_weather_forecast(match_day[1]))
+        response = get_weather_forecast(match_day[1])
+        print(len(response['timelines']['dailys']))
     else:
         historical_weather_data(match_day[1])
 
 
 def get_weather_forecast(location):
     api_key = os.getenv('WEATHER_API_KEY')
-    url = f"https://api.tomorrow.io/v4/weather/forecast?location={location}&apikey={api_key}"
+    url = f"https://api.tomorrow.io/v4/weather/forecast?location={location}&timesteps=1d&apikey={api_key}"
 
     headers = {"accept": "application/json"}
 
     try:
         response = requests.get(url, headers=headers)
         response.raise_for_status()
-        return json.dumps(response.json(), indent=4)
+        return response.json()
     except requests.exceptions.HTTPError as e:
         logging.error(f"HTTP error occurred: {e}")
     except requests.exceptions.RequestException as e:
