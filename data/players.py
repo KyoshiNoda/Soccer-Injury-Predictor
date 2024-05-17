@@ -39,12 +39,7 @@ def get_match_data(team, date):
         return pd.DataFrame()
 
 
-def get_upcoming_match(df):
-    upcoming_matches = df[df['isResult'] == False]
-    if not upcoming_matches.empty:
-        return upcoming_matches.iloc[0]
-    else:
-        return "No upcoming matches found"
+
 
 
 def parse_data(data_str):

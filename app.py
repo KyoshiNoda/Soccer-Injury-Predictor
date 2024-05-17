@@ -14,28 +14,28 @@ parsed_data = parse_data(player_txt)
 df_prem_2024 = league_player_data("EPL", "2024")
 
 # WIP: need to parse data correctly
-weather_data = get_weather_forecast()
+# weather_data = get_weather_forecast()
 
 # FROM TEXT FILE: OUTDATED SOURCES MAYBE
 df_players, df_past_teams, df_injuries = create_players_dataframe(parsed_data)
 
-print("PLAYERS")
-print("")
-print(tabulate(df_players.head(1000), headers='keys',
-      tablefmt='psql', showindex=False))
+# print("PLAYERS")
+# print("")
+# print(tabulate(df_players.head(1000), headers='keys',
+#       tablefmt='psql', showindex=False))
 
-print(tabulate(df_prem_2024, headers='keys', tablefmt='psql', showindex=False))
+# print(tabulate(df_prem_2024, headers='keys', tablefmt='psql', showindex=False))
 
-print("PAST TEAMS")
-print("")
+# print("PAST TEAMS")
+# print("")
 
-print(tabulate(df_past_teams.head(100), headers='keys',
-      tablefmt='psql', showindex=False))
+# print(tabulate(df_past_teams.head(100), headers='keys',
+#       tablefmt='psql', showindex=False))
 
-print("INJURY HISTORY")
-print("")
-print(tabulate(df_injuries.head(100), headers='keys',
-      tablefmt='psql', showindex=False))
+# print("INJURY HISTORY")
+# print("")
+# print(tabulate(df_injuries.head(100), headers='keys',
+#       tablefmt='psql', showindex=False))
 
 
 """
@@ -44,5 +44,9 @@ PARSED OUT upcoming match for a given player.
 haaland = df_prem_2024.loc[df_prem_2024['player_name'] == "Erling Haaland"]
 haaland_team = transform_team_name(haaland.team_title.to_string(index=False))
 haaland_matches = get_match_data(haaland_team, str(datetime.date.today().year))
-haaland_upcoming_match = get_upcoming_match(haaland_matches).datetime
-print(haaland_upcoming_match)
+haaland_upcoming_match = get_upcoming_match(haaland_matches)
+
+print(tabulate(haaland_matches, headers='keys', tablefmt='psql', showindex=False))
+
+weather_prediction(haaland_upcoming_match)
+
