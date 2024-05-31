@@ -4,6 +4,8 @@ import logging
 from understatapi import UnderstatClient
 from tabulate import tabulate
 from data.player_utils import *
+from bs4 import BeautifulSoup
+import requests
 
 logging.basicConfig(level=logging.INFO)
 
@@ -39,9 +41,6 @@ def get_match_data(team, date):
         return pd.DataFrame()
 
 
-
-
-
 def parse_data(data_str):
     try:
         return ast.literal_eval(data_str)
@@ -51,20 +50,21 @@ def parse_data(data_str):
 
 
 def create_players_dataframe(data):
+    # for now I believe I only need the injury datasets, since the other ones are expired.
     try:
-        df_players = pd.DataFrame(parse_player_info(data), columns=[
-            'ID', 'Name', 'Team', 'Value', 'DOB', 'Rating', 'Height', 'Nationality', 'Position', 'Foot'
-        ])
+        # df_players = pd.DataFrame(parse_player_info(data), columns=[
+        #     'ID', 'Name', 'Team', 'Value', 'DOB', 'Rating', 'Height', 'Nationality', 'Position', 'Foot'
+        # ])
 
-        df_past_teams = pd.DataFrame(parse_past_teams(data), columns=[
-            'ID', 'Name', 'Current Team', 'New Team', 'Season', 'Date'
-        ])
+        # df_past_teams = pd.DataFrame(parse_past_teams(data), columns=[
+        #     'ID', 'Name', 'Current Team', 'New Team', 'Season', 'Date'
+        # ])
 
         df_injuries = pd.DataFrame(parse_injury_history(data), columns=[
             'ID', 'Name', 'Season', 'Injury Type', 'Absences'
         ])
 
-        return df_players, df_past_teams, df_injuries
+        return df_injuries
 
     except Exception as e:
         logging.error(f"Failed to create dataframes: {e}")
@@ -102,3 +102,21 @@ def create_injuries_dataframe(data):
     except Exception as e:
         logging.error(f"Failed to create injuries dataframe: {e}")
         return pd.DataFrame()
+
+
+def get_player_height(player_name):
+    parsed_player = player_name.replace(" ", "_")
+    url = f'https://en.wikipedia.org/wiki/{parsed_player}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        height_row = soup.find('th', text='Height').parent if soup.find(
+            'th', text='Height') else None
+        if height_row:
+            height = height_row.find('td', class_='infobox-data').text.strip()
+            print(f"Player Height: {height}")
+        else:
+            print("Height information not found.")
+    else:
+        print(
+            f"Failed to retrieve webpage, status code: {response.status_code}")
