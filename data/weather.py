@@ -8,15 +8,21 @@ logging.basicConfig(level=logging.INFO)
 
 
 def weather_prediction(match_day):
-    match_day_datetime = datetime.datetime.strptime(
-        match_day[0], '%Y-%m-%d %H:%M:%S')
-    date_diff = match_day_datetime - datetime.datetime.today()
-    if date_diff.days < 5:
-        response = get_weather_forecast(match_day[1])
-        print(response)
-    else:
-        response = historical_weather_data(match_day[0], match_day[1])
-        print(response)
+    if isinstance(match_day, str) and match_day == "No upcoming matches found":
+        return match_day
+    try:
+        match_day_datetime = datetime.datetime.strptime(
+            match_day[0], '%Y-%m-%d %H:%M:%S')
+        date_diff = match_day_datetime - datetime.datetime.today()
+
+        if date_diff.days < 5:
+            response = get_weather_forecast(match_day[1])
+            print(response)
+        else:
+            response = historical_weather_data(match_day[0], match_day[1])
+            print(response)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 def get_weather_forecast(location):

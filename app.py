@@ -46,7 +46,7 @@ haaland_team = transform_team_name(haaland.team_title.to_string(index=False))
 haaland_matches = get_match_data(haaland_team, str(datetime.date.today().year))
 haaland_upcoming_match = get_upcoming_match(haaland_matches)
 
-# print(tabulate(haaland_matches, headers='keys', tablefmt='psql', showindex=False))
+# print(tabulate(haaland_upcoming_match, headers='keys', tablefmt='psql', showindex=False))
 
-weather_prediction(haaland_upcoming_match)
+# print(weather_prediction(haaland_upcoming_match))
 
