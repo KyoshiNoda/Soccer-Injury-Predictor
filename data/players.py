@@ -104,6 +104,31 @@ def create_injuries_dataframe(data):
         return pd.DataFrame()
 
 
+def get_player_weight(player_name):
+    parsed_player = player_name.replace(" ", "-")
+    response = requests.get(
+        f"https://www.foxsports.com/soccer/{parsed_player.lower()}-player-bio")
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', class_='data-table')
+        if table:
+            rows = table.find_all('tr')
+            for row in rows:
+                cells = row.find_all('td')
+                if len(cells) > 1 and "Height, Weight" in cells[0].get_text(strip=True):
+                    weight_data_text = cells[1].get_text(strip=True)
+                    try:
+                        weight = weight_data_text.split(", ")[1]
+                        return weight
+                    except IndexError:
+                        return "Weight information not found."
+            return "Height, Weight row not found."
+        else:
+            return "Data table not found."
+    else:
+        return "Weight information not found."
+
+
 def get_player_height(player_name):
     parsed_player = player_name.replace(" ", "_")
     url = f'https://en.wikipedia.org/wiki/{parsed_player}'
@@ -114,9 +139,29 @@ def get_player_height(player_name):
             'th', text='Height') else None
         if height_row:
             height = height_row.find('td', class_='infobox-data').text.strip()
-            print(f"Player Height: {height}")
+            return height[0:6]
         else:
             print("Height information not found.")
     else:
         print(
             f"Failed to retrieve webpage, status code: {response.status_code}")
+
+
+def get_player_age(player_name):
+    parsed_player = player_name.replace(" ", "_")
+    url = f'https://en.wikipedia.org/wiki/{parsed_player}'
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        dob_row = soup.find('th', text='Date of birth').parent if soup.find(
+            'th', text='Date of birth') else None
+        if dob_row:
+            # Extracting the age directly from the 'span' with class 'ForceAgeToShow'
+            age = dob_row.find('span', class_='ForceAgeToShow').text.strip()
+            # Removing non-numeric characters and leaving only the age number
+            age = ''.join(filter(str.isdigit, age))
+            return age
+        else:
+            return "Age information not found."
+    else:
+        return f"Failed to retrieve webpage, status code: {response.status_code}"

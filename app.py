@@ -27,7 +27,9 @@ haaland_matches = get_match_data(haaland_team, str(datetime.date.today().year))
 haaland_upcoming_match = get_upcoming_match(haaland_matches)
 
 
+print(get_player_age("Erling Haaland"))
 print(get_player_height("Erling Haaland"))
+print(get_player_weight("Erling Haaland"))
 
 # print(tabulate(df_prem_2024, headers='keys', tablefmt='psql', showindex=False))
 # print(weather_prediction(haaland_upcoming_match))
