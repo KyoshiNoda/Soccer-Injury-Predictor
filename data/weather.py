@@ -51,7 +51,6 @@ def get_weather_forecast(location):
 def historical_weather_data(time, location):
     api_key = os.getenv('VISUALCROSSING_API_KEY')
     try:
-        # current date and get interval of the last 5 years for historical weather data
         current_datetime_obj = datetime.strptime(time, '%Y-%m-%d %H:%M:%S')
         end_datetime_obj = current_datetime_obj.replace(
             year=current_datetime_obj.year - 1)
@@ -60,7 +59,6 @@ def historical_weather_data(time, location):
 
         all_results = []
 
-        # call API for every year
         for year in range(start_datetime_obj.year, end_datetime_obj.year + 1):
             specific_day = end_datetime_obj.replace(year=year)
             iso_datetime_str = specific_day.strftime('%Y-%m-%dT%H:%M:%S')
@@ -81,8 +79,6 @@ def historical_weather_data(time, location):
             response.raise_for_status()
 
             all_results.append(response.json())
-
-        # Extract the 'values' nested property from each response
         values_list = [
             result['locations'][location]['values']
             for result in all_results
