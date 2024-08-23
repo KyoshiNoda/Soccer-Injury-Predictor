@@ -59,20 +59,20 @@ def get_stadium_location(home_team):
         "Bournemouth": "Vitality Stadium, Bournemouth, UK",
         "Brentford": "Brentford Community Stadium, Brentford, UK",
         "Brighton": "Falmer Stadium, Brighton, UK",
-        "Burnley": "Turf Moor, Burnley, UK",
         "Chelsea": "Stamford Bridge, London, UK",
         "Crystal Palace": "Selhurst Park, London, UK",
         "Everton": "Goodison Park, Liverpool, UK",
         "Fulham": "Craven Cottage, London, UK",
         "Liverpool": "Anfield, Liverpool, UK",
-        "Luton Town": "Kenilworth Road, Luton, UK",
         "Manchester City": "Etihad Stadium, Manchester, UK",
         "Manchester United": "Old Trafford, Manchester, UK",
         "Newcastle United": "St James' Park, Newcastle, UK",
         "Nottingham Forest": "City Ground, Nottingham, UK",
-        "Sheffield United": "Bramall Lane, Sheffield, UK",
         "Tottenham": "Tottenham Hotspur Stadium, London, UK",
         "West Ham": "London Stadium, London, UK",
-        "Wolverhampton Wanderers": "Molineux Stadium, Wolverhampton, UK"
+        "Wolverhampton Wanderers": "Molineux Stadium, Wolverhampton, UK",
+        "Leicester City": "King Power Stadium, Leicester, UK",
+        "Ipswich Town": "Portman Road Stadium, Ipswich, UK",
+        "Southampton": "St Mary's Stadium, Southampton, UK"
     }
     return team_stadiums[home_team['title']]

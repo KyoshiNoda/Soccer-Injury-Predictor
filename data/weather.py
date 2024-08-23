@@ -9,18 +9,19 @@ logging.basicConfig(level=logging.INFO)
 
 def weather_prediction(match_day):
     if isinstance(match_day, str) and match_day == "No upcoming matches found":
-        return match_day
+        match_day = ("2024-08-20 00:00:00",
+                     'Tottenham Hotspur Stadium, London, UK')
+
     try:
         match_day_datetime = datetime.datetime.strptime(
             match_day[0], '%Y-%m-%d %H:%M:%S')
         date_diff = match_day_datetime - datetime.datetime.today()
 
         if date_diff.days < 5:
-            response = get_weather_forecast(match_day[1])
-            print(response)
+            return get_weather_forecast(match_day[1])
+            
         else:
-            response = historical_weather_data(match_day[0], match_day[1])
-            print(response)
+            return historical_weather_data(match_day[0], match_day[1])
     except Exception as e:
         print(f"An error occurred: {e}")
 
