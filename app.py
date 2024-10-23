@@ -40,10 +40,13 @@ Input constraints: Upper case letter for each player. (Has be a professional pla
 """
 
 
-def player_biometrics():
-    print(get_player_age("Erling Haaland"))
-    print(get_player_height("Erling Haaland"))
-    print(get_player_weight("Erling Haaland"))
+def player_biometrics(name):
+    print(get_player_age(name))
+    print(get_player_height(name))
+    print(get_player_weight(name))
+    print(get_player_position(name))
+
+player_biometrics("Leon Bailey")
 
 
 """
@@ -65,4 +68,3 @@ def weather_predictions():
     print(weather_prediction(haaland_upcoming_match))
 
 
-weather_predictions()
