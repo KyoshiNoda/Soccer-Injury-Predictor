@@ -24,6 +24,8 @@ def text_injuries():
     print(tabulate(df_injuries.head(1000), headers='keys',
                    tablefmt='psql', showindex=False))
 
+# text_injuries()
+
 
 """
 PREM DATAFRAME: contains most players from the prem in 2024.
@@ -31,7 +33,7 @@ Feel free to print out the dataframe if you would like to see data.
 Edge case: multiple teams in single season: EX: Cole Palmer: Man City and Chelsea
 """
 df_prem_2024 = league_player_data("EPL", "2024")
-# print(df_prem_2024)
+print(df_prem_2024)
 
 """
 Scrapes data from the web to get player biometrics
@@ -46,7 +48,7 @@ def player_biometrics(name):
     print(get_player_weight(name))
     print(get_player_position(name))
 
-player_biometrics("Leon Bailey")
+# player_biometrics("Leon Bailey")
 
 
 """
@@ -57,14 +59,63 @@ It then predicts the weather on either forecasted weather from the API or histor
 """
 
 
-def weather_predictions():
-    haaland = df_prem_2024.loc[df_prem_2024['player_name'] == "Erling Haaland"]
-    haaland_team = transform_team_name(
-        haaland.team_title.to_string(index=False))
-    haaland_matches = get_match_data(
-        haaland_team, str(datetime.date.today().year))
-    haaland_upcoming_match = get_upcoming_match(haaland_matches)
-    # print(tabulate(df_prem_2024, headers='keys', tablefmt='psql', showindex=False))
-    print(weather_prediction(haaland_upcoming_match))
+def weather_predictions(player_name):
+    player = df_prem_2024.loc[df_prem_2024['player_name'] == player_name]
+    player_team = transform_team_name(
+        player.team_title.to_string(index=False))
+    player_matches = get_match_data(
+        player_team, str(datetime.date.today().year))
+    player_upcoming_matches = get_upcoming_match(player_matches)
+    print(weather_prediction(player_upcoming_matches))
+
+# weather_predictions("Erling Haaland")
+
+
+def create_master_dataframe(df_prem_2024):
+    """
+    - player_name [x]
+    - age [x]
+    - height [x]
+    - weight [x]
+    - position [x]
+    - team [x]
+    - match_date [x]
+    - opponent [x]
+    - location [x]
+    - weather_conditions [less than 5 days only.]
+    """
+    data_entries = []
+
+    for index, player in df_prem_2024.iterrows():
+        player_name = player['player_name']
+        team_name = transform_team_name(player['team_title'])
+
+        try:
+            age = get_player_age(player_name)
+            height = get_player_height(player_name)
+            weight = get_player_weight(player_name)
+            position = get_player_position(player_name)
+            weather_conditions = weather_predictions(player_name)
+        except Exception as e:
+            print(f"Error retrieving biometrics for {player_name}: {e}")
+            continue
+
+        data_entry = {
+            'player_name': player_name,
+            'age': age,
+            'height': height,
+            'weight': weight,
+            'position': position,
+            'team': team_name,
+        }
+        data_entries.append(data_entry)
+
+    master_dataframe = pd.DataFrame(data_entries)
+
+    return master_dataframe
+
+
+# master_df = create_master_dataframe(df_prem_2024)
+# print(len(master_df))
 
 

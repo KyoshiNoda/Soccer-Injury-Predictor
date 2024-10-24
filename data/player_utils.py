@@ -47,7 +47,7 @@ def get_upcoming_match(df):
     if not upcoming_matches.empty:
         return (upcoming_matches.iloc[0].datetime,
                 get_stadium_location(upcoming_matches.iloc[0].h)
-                )
+        )
     else:
         return "No upcoming matches found"
 
