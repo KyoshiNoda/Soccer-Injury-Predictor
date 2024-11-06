@@ -103,9 +103,12 @@ def create_injuries_dataframe(data):
         logging.error(f"Failed to create injuries dataframe: {e}")
         return pd.DataFrame()
 
+
 """
 I'm not sure if we need this function, but i'll keep it here for now.
 """
+
+
 def get_player_weight(player_name):
     parsed_player = player_name.replace(" ", "-")
     response = requests.get(
@@ -159,9 +162,63 @@ def get_player_biometrics(player_name):
             height = height_row.find('td', class_='infobox-data').text.strip()
             result['height'] = height[0:6]
 
-        return result
+        if any([dob_row, position_row, height_row]):
+            return result
+        else:
+            return deeper_player_scrape(player_name)
 
     else:
         print(
             f"Failed to retrieve webpage, status code: {response.status_code}"
         )
+
+
+"""
+We only run this if we couldn't find the player with wiki.
+
+1. Finds a player via fox sports
+2. If we couldn't find a player, add it to a text file to research.
+"""
+
+
+def deeper_player_scrape(player_name):
+    parsed_player = player_name.replace(" ", "-")
+    response = requests.get(
+        f"https://www.foxsports.com/soccer/{parsed_player.lower()}-player-bio")
+    player_info = {"height": None, "weight": None, "age": None}
+
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        table = soup.find('table', class_='data-table')
+
+        if table:
+            rows = table.find_all('tr')
+            for row in rows:
+                cells = row.find_all('td')
+                if len(cells) > 1:
+                    label = cells[0].get_text(strip=True)
+                    value = cells[1].get_text(strip=True)
+
+                    if label == "Height, Weight":
+                        try:
+                            height, weight = value.split(", ")
+                            player_info["height"] = height.replace(
+                                "'", " ft ").replace('"', ' in')
+                            player_info["weight"] = weight
+                        except ValueError:
+                            player_info["weight"] = "Height, Weight information format is incorrect."
+
+                    elif label == "Age":
+                        player_info["age"] = value
+
+            return player_info
+        else:
+            with open("data/missing_players.txt", "a") as file:
+                file.write(f"{player_name} - Data table not found\n")
+            return "Data table not found."
+    else:
+        with open("data/missing_players.txt", "a") as file:
+            file.write(
+                f"{player_name} - Page not found or status code: {response.status_code}\n"
+            )
+        return "Player information not found."

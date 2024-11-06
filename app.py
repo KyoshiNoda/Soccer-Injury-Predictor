@@ -44,6 +44,7 @@ sources: wikipedia and foxsports
 Input constraints: Upper case letter for each player. (Has be a professional player)
 """
 # web_scrape_player = get_player_biometrics("Leon Bailey")
+print(deeper_player_scrape("erling haaland"))
 
 
 """
@@ -86,10 +87,7 @@ def create_master_dataframe(df_prem_2024):
         team_name = transform_team_name(player['team_title'])
 
         try:
-            age = get_player_age(player_name)
-            height = get_player_height(player_name)
-            weight = get_player_weight(player_name)
-            position = get_player_position(player_name)
+            player_biometrics = get_player_biometrics(player_name)
             # weather_conditions = weather_predictions(player_name)
         except Exception as e:
             print(f"Error retrieving biometrics for {player_name}: {e}")
@@ -97,10 +95,10 @@ def create_master_dataframe(df_prem_2024):
 
         data_entry = {
             'player_name': player_name,
-            'age': age,
-            'height': height,
-            'weight': weight,
-            'position': position,
+            'age': player_biometrics['age'],
+            'height': player_biometrics['height'],
+            # 'weight': weight,
+            'position': player_biometrics['position'],
             'team': team_name,
         }
         data_entries.append(data_entry)
