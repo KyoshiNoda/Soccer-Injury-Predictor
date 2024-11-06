@@ -4,6 +4,9 @@ from data.utils import *
 from dotenv import load_dotenv
 from tabulate import tabulate
 import datetime
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
 
 load_dotenv()
 
@@ -33,22 +36,14 @@ Feel free to print out the dataframe if you would like to see data.
 Edge case: multiple teams in single season: EX: Cole Palmer: Man City and Chelsea
 """
 df_prem_2024 = league_player_data("EPL", "2024")
-print(df_prem_2024)
+# print(df_prem_2024)
 
 """
 Scrapes data from the web to get player biometrics
 sources: wikipedia and foxsports
 Input constraints: Upper case letter for each player. (Has be a professional player)
 """
-
-
-def player_biometrics(name):
-    print(get_player_age(name))
-    print(get_player_height(name))
-    print(get_player_weight(name))
-    print(get_player_position(name))
-
-# player_biometrics("Leon Bailey")
+# web_scrape_player = get_player_biometrics("Leon Bailey")
 
 
 """
@@ -86,7 +81,7 @@ def create_master_dataframe(df_prem_2024):
     """
     data_entries = []
 
-    for index, player in df_prem_2024.iterrows():
+    for _, player in df_prem_2024.iterrows():
         player_name = player['player_name']
         team_name = transform_team_name(player['team_title'])
 
@@ -95,7 +90,7 @@ def create_master_dataframe(df_prem_2024):
             height = get_player_height(player_name)
             weight = get_player_weight(player_name)
             position = get_player_position(player_name)
-            weather_conditions = weather_predictions(player_name)
+            # weather_conditions = weather_predictions(player_name)
         except Exception as e:
             print(f"Error retrieving biometrics for {player_name}: {e}")
             continue
@@ -116,6 +111,16 @@ def create_master_dataframe(df_prem_2024):
 
 
 # master_df = create_master_dataframe(df_prem_2024)
-# print(len(master_df))
+# print(master_df.head())
 
+# X = master_df.drop(['player_name', 'team', 'match_date', 'injury_status'], axis=1)
+# y = master_df['injury_status']
 
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
+
+# model = RandomForestClassifier(n_estimators=100, random_state=42)
+# model.fit(X_train, y_train)
+
+# y_pred = model.predict(X_test)
+# print(classification_report(y_test, y_pred))
+# print(confusion_matrix(y_test, y_pred))

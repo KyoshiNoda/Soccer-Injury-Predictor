@@ -103,7 +103,9 @@ def create_injuries_dataframe(data):
         logging.error(f"Failed to create injuries dataframe: {e}")
         return pd.DataFrame()
 
-
+"""
+I'm not sure if we need this function, but i'll keep it here for now.
+"""
 def get_player_weight(player_name):
     parsed_player = player_name.replace(" ", "-")
     response = requests.get(
@@ -129,54 +131,37 @@ def get_player_weight(player_name):
         return "Weight information not found."
 
 
-def get_player_height(player_name):
+def get_player_biometrics(player_name):
+    result = {}
     parsed_player = player_name.replace(" ", "_")
     url = f'https://en.wikipedia.org/wiki/{parsed_player}'
     response = requests.get(url)
     if response.status_code == 200:
-        soup = BeautifulSoup(response.text, 'html.parser')
-        height_row = soup.find('th', text='Height').parent if soup.find(
-            'th', text='Height') else None
-        if height_row:
-            height = height_row.find('td', class_='infobox-data').text.strip()
-            return height[0:6]
-        else:
-            print("Height information not found.")
-    else:
-        print(
-            f"Failed to retrieve webpage, status code: {response.status_code}")
+        soup = BeautifulSoup(response.text, "html.parser")
 
-
-def get_player_age(player_name):
-    parsed_player = player_name.replace(" ", "_")
-    url = f'https://en.wikipedia.org/wiki/{parsed_player}'
-    response = requests.get(url)
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.text, 'html.parser')
+        position_row = soup.find('th', text='Position(s)').parent if soup.find(
+            'th', text='Position(s)') else None
         dob_row = soup.find('th', text='Date of birth').parent if soup.find(
             'th', text='Date of birth') else None
+        height_row = soup.find('th', text='Height').parent if soup.find(
+            'th', text='Height') else None
+
         if dob_row:
             age = dob_row.find('span', class_='ForceAgeToShow').text.strip()
             age = ''.join(filter(str.isdigit, age))
-            return age
-        else:
-            return "Age information not found."
-    else:
-        return f"Failed to retrieve webpage, status code: {response.status_code}"
+            result['age'] = age
 
-def get_player_position(player_name):
-    parsed_player = player_name.replace(" ", "_")
-    url = f'https://en.wikipedia.org/wiki/{parsed_player}'
-    response = requests.get(url)
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.text, 'html.parser')
-        position_row = soup.find('th', text='Position(s)').parent if soup.find(
-            'th', text='Position(s)') else None
         if position_row:
-            position = position_row.find('td', class_='infobox-data').text.strip()
-            return position
-        else:
-            print("Position information not found.")
+            result['position'] = position_row.find(
+                'td', class_='infobox-data').text.strip()
+
+        if height_row:
+            height = height_row.find('td', class_='infobox-data').text.strip()
+            result['height'] = height[0:6]
+
+        return result
+
     else:
         print(
-            f"Failed to retrieve webpage, status code: {response.status_code}")
+            f"Failed to retrieve webpage, status code: {response.status_code}"
+        )
