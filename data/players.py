@@ -4,6 +4,7 @@ import logging
 from understatapi import UnderstatClient
 from tabulate import tabulate
 from data.player_utils import *
+from data.utils import add_missing_player
 from bs4 import BeautifulSoup
 import requests
 
@@ -185,12 +186,26 @@ def deeper_player_scrape(player_name):
     parsed_player = player_name.replace(" ", "-")
     response = requests.get(
         f"https://www.foxsports.com/soccer/{parsed_player.lower()}-player-bio")
-    player_info = {"height": None, "weight": None, "age": None}
+
+    player_info = {
+        "height": None,
+        "weight": None,
+        "age": None,
+        "position": None
+    }
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
-        table = soup.find('table', class_='data-table')
 
+        position_tag = soup.find(
+            'span', class_='fs-10 ff-sm-n cl-wht opac-7 mg-t-5 nowrap flex-col-left tab-mob-only-flex')
+        if position_tag:
+            position_text = position_tag.get_text(strip=True)
+            parts = position_text.split(" - ")
+            if len(parts) > 1:
+                player_info["position"] = parts[1].lower()
+
+        table = soup.find('table', class_='data-table')
         if table:
             rows = table.find_all('tr')
             for row in rows:
@@ -213,12 +228,6 @@ def deeper_player_scrape(player_name):
 
             return player_info
         else:
-            with open("data/missing_players.txt", "a") as file:
-                file.write(f"{player_name} - Data table not found\n")
-            return "Data table not found."
+            add_missing_player(player_name, "Data table not found.")
     else:
-        with open("data/missing_players.txt", "a") as file:
-            file.write(
-                f"{player_name} - Page not found or status code: {response.status_code}\n"
-            )
-        return "Player information not found."
+        add_missing_player(player_name, "Player information not found.")
