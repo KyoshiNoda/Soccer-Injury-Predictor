@@ -5,9 +5,11 @@ from understatapi import UnderstatClient
 from tabulate import tabulate
 from data.player_utils import *
 from data.utils import add_missing_player
+from data.weather import weather_prediction
 from bs4 import BeautifulSoup
 from unidecode import unidecode
 import requests
+import datetime
 
 logging.basicConfig(level=logging.INFO)
 
@@ -154,8 +156,8 @@ def get_player_biometrics(player_name):
 
         return player_info
     else:
-        # deeper dive
-        deeper_player_scrape(player_name)
+        raise ConnectionError(
+            f"Failed to retrieve player data; status code: {response.status_code}")
 
 
 """
@@ -180,6 +182,9 @@ def deeper_player_scrape(player_name, result):
         height_row = soup.find('th', text='Height').parent if soup.find(
             'th', text='Height') else None
 
+        # we can't parse out a weight from wiki, just leave it out.
+        result['weight'] = "NA"
+
         if dob_row:
             age = dob_row.find('span', class_='ForceAgeToShow').text.strip()
             age = ''.join(filter(str.isdigit, age))
@@ -203,3 +208,9 @@ def deeper_player_scrape(player_name, result):
     else:
         raise ConnectionError(
             f"Failed to retrieve player data; status code: {response.status_code}")
+
+
+def get_player_weather_prediction(team):
+    all_matches = get_match_data(team, str(datetime.date.today().year))
+    upcoming_matches = get_upcoming_match(all_matches)
+    return weather_prediction(upcoming_matches)
