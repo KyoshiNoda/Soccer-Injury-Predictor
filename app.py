@@ -87,7 +87,7 @@ def create_master_dataframe(df_prem_2024):
         team_name = transform_team_name(player['team_title'])
 
         try:
-            player_biometrics = deeper_player_scrape(player_name)
+            player_biometrics = get_player_biometrics(player_name)
             # weather_conditions = weather_predictions(player_name)
         except Exception as e:
             print(f"Error retrieving biometrics for {player_name}: {e}")

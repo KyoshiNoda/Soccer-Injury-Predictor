@@ -107,7 +107,66 @@ def create_injuries_dataframe(data):
 
 
 def get_player_biometrics(player_name):
-    result = {}
+    parsed_player = player_name.replace(" ", "-")
+    response = requests.get(
+        f"https://www.foxsports.com/soccer/{unidecode(parsed_player.lower())}-player-bio")
+
+    player_info = {
+        "height": None,
+        "weight": None,
+        "age": None,
+        "position": None
+    }
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    position_tag = soup.find(
+        'span', class_='fs-10 ff-sm-n cl-wht opac-7 mg-t-5 nowrap flex-col-left tab-mob-only-flex')
+    if position_tag:
+        position_text = position_tag.get_text(strip=True)
+        parts = position_text.split(" - ")
+        if len(parts) > 1:
+            player_info["position"] = parts[1].lower()
+    else:
+        deeper_player_scrape(player_name, player_info)
+        return player_info
+
+    table = soup.find('table', class_='data-table')
+    if table:
+        rows = table.find_all('tr')
+        for row in rows:
+            cells = row.find_all('td')
+            if len(cells) > 1:
+                label = cells[0].get_text(strip=True)
+                value = cells[1].get_text(strip=True)
+
+                if label == "Height, Weight":
+                    try:
+                        height, weight = value.split(", ")
+                        player_info["height"] = height.replace(
+                            "'", " ft ").replace('"', ' in')
+                        player_info["weight"] = weight
+                    except ValueError:
+                        player_info["weight"] = "Height, Weight information format is incorrect."
+
+                elif label == "Age":
+                    player_info["age"] = value
+
+        return player_info
+    else:
+        # deeper dive
+        deeper_player_scrape(player_name)
+
+
+"""
+We only run this if we couldn't find the player with fox sports
+
+1. If we couldn't find a player, search wiki and get height, position, age
+2. mark weight as NA because has no info on that.
+"""
+
+
+def deeper_player_scrape(player_name, result):
     parsed_player = player_name.replace(" ", "_")
     url = f'https://en.wikipedia.org/wiki/{parsed_player}'
     response = requests.get(url)
@@ -137,72 +196,10 @@ def get_player_biometrics(player_name):
         if any([dob_row, position_row, height_row]):
             return result
         else:
-            return deeper_player_scrape(player_name)
-
-    else:
-        print(
-            f"Failed to retrieve webpage, status code: {response.status_code}"
-        )
-
-
-"""
-We only run this if we couldn't find the player with wiki.
-
-1. Finds a player via fox sports
-2. If we couldn't find a player, add it to a text file to research.
-"""
-
-
-def deeper_player_scrape(player_name):
-    parsed_player = player_name.replace(" ", "-")
-    response = requests.get(
-        f"https://www.foxsports.com/soccer/{unidecode(parsed_player.lower())}-player-bio")
-
-    player_info = {
-        "height": None,
-        "weight": None,
-        "age": None,
-        "position": None
-    }
-
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        position_tag = soup.find(
-            'span', class_='fs-10 ff-sm-n cl-wht opac-7 mg-t-5 nowrap flex-col-left tab-mob-only-flex')
-        if position_tag:
-            position_text = position_tag.get_text(strip=True)
-            parts = position_text.split(" - ")
-            if len(parts) > 1:
-                player_info["position"] = parts[1].lower()
-
-        table = soup.find('table', class_='data-table')
-        if table:
-            rows = table.find_all('tr')
-            for row in rows:
-                cells = row.find_all('td')
-                if len(cells) > 1:
-                    label = cells[0].get_text(strip=True)
-                    value = cells[1].get_text(strip=True)
-
-                    if label == "Height, Weight":
-                        try:
-                            height, weight = value.split(", ")
-                            player_info["height"] = height.replace(
-                                "'", " ft ").replace('"', ' in')
-                            player_info["weight"] = weight
-                        except ValueError:
-                            player_info["weight"] = "Height, Weight information format is incorrect."
-
-                    elif label == "Age":
-                        player_info["age"] = value
-
-            return player_info
-        else:
             add_missing_player(player_name, "Data table not found.")
             raise LookupError(
                 f"Data table not found for player: {player_name}")
+
     else:
-        add_missing_player(player_name, "Player information not found.")
         raise ConnectionError(
             f"Failed to retrieve player data; status code: {response.status_code}")
