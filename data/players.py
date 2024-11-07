@@ -229,5 +229,9 @@ def deeper_player_scrape(player_name):
             return player_info
         else:
             add_missing_player(player_name, "Data table not found.")
+            raise LookupError(
+                f"Data table not found for player: {player_name}")
     else:
         add_missing_player(player_name, "Player information not found.")
+        raise ConnectionError(
+            f"Failed to retrieve player data; status code: {response.status_code}")
