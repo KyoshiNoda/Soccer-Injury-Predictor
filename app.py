@@ -106,7 +106,6 @@ def create_master_dataframe(df_prem_2024):
 
     return master_dataframe
 
-
 master_df = create_master_dataframe(df_prem_2024)
 print(master_df.head())
 
