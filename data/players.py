@@ -4,7 +4,7 @@ import logging
 from understatapi import UnderstatClient
 from tabulate import tabulate
 from data.player_utils import *
-from data.utils import add_missing_player
+from data.utils import add_missing_player, add_player_CSV
 from data.weather import weather_prediction
 from bs4 import BeautifulSoup
 from unidecode import unidecode
@@ -206,8 +206,9 @@ def deeper_player_scrape(player_name, result):
                 f"Data table not found for player: {player_name}")
 
     else:
+        add_missing_player(player_name, "Data table not found.")
         raise ConnectionError(
-            f"Failed to retrieve player data; status code: {response.status_code}")
+            f"Failed to retrieve player data status code: {response.status_code}")
 
 
 def get_player_weather_prediction(team):

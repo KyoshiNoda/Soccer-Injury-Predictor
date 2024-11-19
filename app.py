@@ -64,7 +64,7 @@ def weather_predictions(player_name):
     player_upcoming_matches = get_upcoming_match(player_matches)
     print(weather_prediction(player_upcoming_matches))
 
-weather_predictions("Erling Haaland")
+# weather_predictions("Erling Haaland")
 
 
 def create_master_dataframe(df_prem_2024):
@@ -100,6 +100,7 @@ def create_master_dataframe(df_prem_2024):
             'position': player_biometrics['position'],
             'team': team_name,
         }
+        add_player_CSV(data_entry)
         data_entries.append(data_entry)
 
     master_dataframe = pd.DataFrame(data_entries)
@@ -107,8 +108,12 @@ def create_master_dataframe(df_prem_2024):
     return master_dataframe
 
 
-# master_df = create_master_dataframe(df_prem_2024)
-# print(master_df.head())
+# fresh missing_player.txt
+with open("data/missing_players.txt", "w") as file:
+    pass
+
+master_df = create_master_dataframe(df_prem_2024)
+print(master_df.head())
 
 # X = master_df.drop(['player_name', 'team', 'match_date', 'injury_status'], axis=1)
 # y = master_df['injury_status']
