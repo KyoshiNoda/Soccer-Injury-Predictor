@@ -18,10 +18,10 @@ Alexander Isak,25,6 ft 3 in,154 lbs,forward,Newcastle_United
 Harvey Barnes,26,5 ft 8 in,145 lbs,forward,Newcastle_United
 Brennan Johnson,23,5 ft 10 in,160 lbs,forward,Tottenham
 Jørgen Strand Larsen,24,6 ft 3 in,174 lbs,forward,Wolverhampton_Wanderers
-Noni Madueke,22,6 ft 0,NA,Winger[1],Chelsea
+Noni Madueke,22,6 ft 0 in,NA,Winger[1],Chelsea
 Antoine Semenyo,,,,no team,Bournemouth
-Jhon Durán,20,1.85 m,NA,Forward,Aston_Villa
-Son Heung-Min,32,1.83 m,NA,Forward[3],Tottenham
+Jhon Durán,20,6 ft 1 in,NA,Forward,Aston_Villa
+Son Heung-Min,32,6 ft 0 in,NA,Forward[3],Tottenham
 Jarrod Bowen,27,5 ft 8 in,154 lbs,forward,West_Ham
 Mateo Kovacic,30,5 ft 9 in,169 lbs,midfielder,Manchester_City
 Harry Wilson,27,5 ft 8 in,154 lbs,forward,Fulham
@@ -34,8 +34,8 @@ Bukayo Saka,23,5 ft 10 in,143 lbs,forward,Arsenal
 Gabriel Martinelli,23,5 ft 10 in,165 lbs,forward,Arsenal
 João Pedro,36,6 ft 3 in,190 lbs,no team,Brighton
 Josko Gvardiol,22,6 ft 0 in,176 lbs,defender,Manchester_City
-Alejandro Garnacho,20,1.80 m,NA,Winger,Manchester_United
-Facundo Buonanotte,19,1.74 m,NA,"Attacking midfielder, winger",Leicester
+Alejandro Garnacho,20,5 ft 11 in,NA,Winger,Manchester_United
+Facundo Buonanotte,19,5 ft 9 in,NA,"Attacking midfielder, winger",Leicester
 Morgan Rogers,22,6 ft 1 in,160 lbs,forward,Aston_Villa
 Sammie Szmodics,29,5 ft 6 in,141 lbs,midfielder,Ipswich
 Joelinton,28,6 ft 1 in,178 lbs,forward,Newcastle_United
@@ -48,9 +48,9 @@ Dominic Calvert-Lewin,27,6 ft 1 in,156 lbs,forward,Everton
 Yves Bissouma,28,5 ft 11 in,158 lbs,midfielder,Tottenham
 Gabriel,28,5 ft 10 in,160 lbs,forward,Arsenal
 Callum Hudson-Odoi,24,,,no team,Nottingham_Forest
-Dejan Kulusevski,24,1.86 m,NA,"Midfielder, Winger, Forward",Tottenham
+Dejan Kulusevski,24,6 ft 1 in,NA,"Midfielder, Winger, Forward",Tottenham
 Diogo Jota,27,5 ft 10 in,154 lbs,forward,Liverpool
-Georginio Rutter,22,1.82 m,NA,"Forward, attacking midfielder",Brighton
+Georginio Rutter,22,6 ft 0 in,NA,"Forward, attacking midfielder",Brighton
 Justin Kluivert,25,5 ft 7 in,145 lbs,forward,Bournemouth
 Lucas Paquetá,,,,no team,West_Ham
 Stephy Mavididi,26,5 ft 11 in,156 lbs,forward,Leicester
@@ -60,11 +60,11 @@ James Justin,,,,no team,Leicester
 Anthony Gordon,,,,no team,Newcastle_United
 Tomas Soucek,29,6 ft 3 in,189 lbs,midfielder,West_Ham
 Iliman Ndiaye,24,5 ft 10 in,154 lbs,forward,Everton
-Amadou Onana,23,1.95 m,NA,Defensive midfielder,Aston_Villa
+Amadou Onana,23,6 ft 5 in,NA,Defensive midfielder,Aston_Villa
 Ethan Pinnock,31,6 ft 1 in,178 lbs,defender,Brentford
 Cameron Archer,22,5 ft 11 in,158 lbs,forward,Southampton
 Darwin Núñez,25,6 ft 1 in,174 lbs,forward,Liverpool
-Mohammed Kudus,24,1.75 m,NA,"Attacking midfielder, Right winger",West_Ham
+Mohammed Kudus,24,5 ft 9 in,NA,"Attacking midfielder, Right winger",West_Ham
 Fabian Schär,32,6 ft 1 in,187 lbs,defender,Newcastle_United
 Kevin De Bruyne,33,5 ft 11 in,149 lbs,midfielder,Manchester_City
 Michail Antonio,34,5 ft 10 in,180 lbs,forward,West_Ham
@@ -79,7 +79,7 @@ Mario Lemina,31,6 ft 0 in,187 lbs,midfielder,Wolverhampton_Wanderers
 Lewis Cook,27,5 ft 8 in,156 lbs,midfielder,Bournemouth
 Pablo Sarabia,32,5 ft 10 in,154 lbs,forward,Wolverhampton_Wanderers
 Casemiro,32,6 ft 0 in,185 lbs,midfielder,Manchester_United
-Thomas Partey,31,1.85 m,NA,Defensive midfielder,Arsenal
+Thomas Partey,31,6 ft 1 in,NA,Defensive midfielder,Arsenal
 Christopher Nkunku,,,,no team,Chelsea
 Adam Armstrong,27,5 ft 7 in,152 lbs,forward,Southampton
 Mikel Merino,28,6 ft 2 in,182 lbs,midfielder,Arsenal
@@ -94,11 +94,11 @@ Pedro Porro,25,5 ft 8 in,156 lbs,defender,Tottenham
 Christian Nørgaard,30,6 ft 1 in,169 lbs,midfielder,Brentford
 Cristian Romero,26,6 ft 0 in,174 lbs,defender,Tottenham
 Ezri Konsa Ngoyo,,,,no team,Aston_Villa
-Jean-Ricner Bellegarde,26,1.70 m,NA,Midfielder,Wolverhampton_Wanderers
+Jean-Ricner Bellegarde,26,5 ft 7 in,NA,Midfielder,Wolverhampton_Wanderers
 João Félix,25,,,forward,Chelsea
 Matthijs de Ligt,25,6 ft 2 in,196 lbs,defender,Manchester_United
 Joshua Zirkzee,23,,,forward,Manchester_United
-Amad Diallo Traore,22,1.73 m,NA,"Winger, midfielder",Manchester_United
+Amad Diallo Traore,22,5 ft 8 in,NA,"Winger, midfielder",Manchester_United
 Riccardo Calafiori,22,6 ft 2 in,189 lbs,defender,Arsenal
 Taylor Harwood-Bellis,22,6 ft 2 in,180 lbs,defender,Southampton
 George Hirst,,,,no team,Ipswich
@@ -107,7 +107,7 @@ Eberechi Eze,26,5 ft 8 in,147 lbs,forward,Crystal_Palace
 Mikkel Damsgaard,24,,,midfielder,Brentford
 Leif Davis,24,5 ft 5 in,147 lbs,defender,Ipswich
 Jéremy Doku,22,5 ft 8 in,149 lbs,forward,Manchester_City
-Moisés Caicedo,23,1.78 m,NA,Defensive midfielder,Chelsea
+Moisés Caicedo,23,5 ft 10 in,NA,Defensive midfielder,Chelsea
 Crysencio Summerville,23,5 ft 8 in,141 lbs,forward,West_Ham
 Fabio Carvalho,22,5 ft 6 in,136 lbs,midfielder,Brentford
 Dango Ouattara,22,5 ft 9 in,158 lbs,forward,Bournemouth
@@ -123,7 +123,7 @@ Ryan Christie,29,5 ft 10 in,154 lbs,forward,Bournemouth
 Kaoru Mitoma,27,5 ft 10 in,160 lbs,midfielder,Brighton
 Luis Sinisterra,,,,forward,Bournemouth
 Ryan Yates,26,6 ft 2 in,169 lbs,midfielder,Nottingham_Forest
-Rasmus Højlund,21,1.91 m,NA,Striker,Manchester_United
+Rasmus Højlund,21,6 ft 3 in,NA,Striker,Manchester_United
 Jack Hinshelwood,19,5 ft 11 in,167 lbs,midfielder,Brighton
 Cody Gakpo,25,6 ft 3 in,167 lbs,forward,Liverpool
 João Gomes,27,,,goalie,Wolverhampton_Wanderers
@@ -180,10 +180,10 @@ Harry Maguire,31,6 ft 3 in,220 lbs,defender,Manchester_United
 Andrew Robertson,30,5 ft 10 in,141 lbs,defender,Liverpool
 Abdoulaye Doucouré,31,6 ft 0 in,167 lbs,midfielder,Everton
 Jack Stephens,30,6 ft 0 in,165 lbs,defender,Southampton
-Trent Alexander-Arnold,26,5 ft 9,NA,"Right-back, midfielder[2][3]",Liverpool
+Trent Alexander-Arnold,26,5 ft 9 in,NA,"Right-back, midfielder[2][3]",Liverpool
 Lucas Digne,31,5 ft 10 in,163 lbs,defender,Aston_Villa
 Jefferson Lerma,30,5 ft 10 in,154 lbs,midfielder,Crystal_Palace
-Emiliano Buendía,27,1.72 m,NA,"Attacking midfielder, left winger",Aston_Villa
+Emiliano Buendía,27,5 ft 8 in,NA,"Attacking midfielder, left winger",Aston_Villa
 Alphonse Areola,31,6 ft 4 in,207 lbs,goalie,West_Ham
 Carlos Soler,27,5 ft 10 in,167 lbs,midfielder,West_Ham
 Rodri,,,,,Manchester_City
@@ -199,7 +199,6 @@ Emiliano Martinez,,,,no team,Aston_Villa
 Leon Bailey,27,5 ft 10 in,165 lbs,midfielder,Aston_Villa
 Gabriel Jesus,27,5 ft 8 in,160 lbs,forward,Arsenal
 Wilfred Ndidi,27,6 ft 0 in,163 lbs,midfielder,Leicester
-Nick Pope,32,6 ft 3 in,167 lbs,goalie,Newcastle_United
 Declan Rice,25,6 ft 0 in,176 lbs,midfielder,Arsenal
 Scott McTominay,27,6 ft 3 in,194 lbs,midfielder,Manchester_United
 Aaron Wan-Bissaka,26,6 ft 0 in,158 lbs,defender,West_Ham
@@ -214,7 +213,7 @@ Youri Tielemans,27,5 ft 9 in,158 lbs,midfielder,Aston_Villa
 Kenny Tete,29,5 ft 10 in,156 lbs,defender,Fulham
 Richarlison,27,6 ft 0 in,156 lbs,forward,Tottenham
 Philip Billing,28,6 ft 3 in,182 lbs,midfielder,Bournemouth
-Jan Bednarek,28,1.89 m,NA,Centre-back,Southampton
+Jan Bednarek,28,6 ft 2 in,169 lbs,defender,Southampton
 Charlie Taylor,31,5 ft 9 in,154 lbs,defender,Southampton
 Lewis Dunk,32,6 ft 3 in,169 lbs,defender,Brighton
 Ederson,35,5 ft 7 in,163 lbs,forward,Manchester_City
@@ -225,21 +224,21 @@ Orel Mangala,26,5 ft 10 in,174 lbs,midfielder,Everton
 Niclas Füllkrug,31,6 ft 2 in,182 lbs,forward,West_Ham
 Will Hughes,29,6 ft 0 in,163 lbs,midfielder,Crystal_Palace
 Daichi Kamada,28,5 ft 10 in,158 lbs,midfielder,Crystal_Palace
-Timothy Castagne,28,1.85 m,NA,Full-back,Fulham
+Timothy Castagne,28,6 ft 1 in,NA,Full-back,Fulham
 Nélson Semedo,31,5 ft 10 in,149 lbs,defender,Wolverhampton_Wanderers
 Nikola Milenkovic,27,6 ft 4 in,198 lbs,defender,Nottingham_Forest
 Enes Ünal,27,6 ft 1 in,171 lbs,forward,Bournemouth
 Pau Torres,37,,,,Aston_Villa
 Boubakary Soumare,25,6 ft 2 in,154 lbs,midfielder,Leicester
 Joachim Andersen,28,6 ft 3 in,191 lbs,defender,"Crystal_Palace,Fulham"
-Jadon Sancho,24,5 ft 1,NA,Winger[3],Chelsea
+Jadon Sancho,24,5 ft 10 in,167 lbs,forward,Chelsea
 Hamza Choudhury,,,,no team,Leicester
 Ben Johnson,24,,,no team,Ipswich
 Eddie Nketiah,25,,,no team,Crystal_Palace
 Manuel Akanji,29,6 ft 1 in,198 lbs,defender,Manchester_City
 Joe Willock,25,5 ft 10 in,163 lbs,midfielder,Newcastle_United
 Konstantinos Mavropanos,26,6 ft 4 in,196 lbs,defender,West_Ham
-Jean-Clair Todibo,24,1.90 m,NA,Centre-back,West_Ham
+Jean-Clair Todibo,24,6 ft 2 in,194 lbs,defender,West_Ham
 David Brooks,27,5 ft 8 in,152 lbs,midfielder,Bournemouth
 Bobby Reid,31,5 ft 6 in,134 lbs,forward,Leicester
 Tom Cairney,33,6 ft 0 in,182 lbs,midfielder,Fulham
@@ -275,7 +274,7 @@ Mason Mount,25,5 ft 10 in,143 lbs,midfielder,Manchester_United
 Taiwo Awoniyi,27,6 ft 0 in,163 lbs,forward,Nottingham_Forest
 Caoimhin Kelleher,25,6 ft 2 in,165 lbs,goalie,Liverpool
 Takehiro Tomiyasu,26,6 ft 1 in,154 lbs,no team,Arsenal
-Igor Julio,26,1.85 m,NA,Centre-back,Brighton
+Igor Julio,26,6 ft 1 in,NA,Centre-back,Brighton
 Sandro Tonali,24,5 ft 11 in,176 lbs,midfielder,Newcastle_United
 Billy Gilmour,23,5 ft 6 in,143 lbs,midfielder,Brighton
 Reece James,31,5 ft 6 in,156 lbs,defender,Chelsea
@@ -284,7 +283,7 @@ Neco Williams,23,6 ft 0 in,158 lbs,defender,Nottingham_Forest
 Tyrick Mitchell,25,5 ft 8 in,156 lbs,defender,Crystal_Palace
 William Smallbone,24,6 ft 0 in,176 lbs,midfielder,Southampton
 Tariq Lamptey,24,5 ft 6 in,121 lbs,defender,Brighton
-Nicolás Domínguez,26,1.79 m,NA,Central midfielder,Nottingham_Forest
+Nicolás Domínguez,26,5 ft 10 in,NA,Central midfielder,Nottingham_Forest
 Guido Rodríguez,30,6 ft 0 in,176 lbs,midfielder,West_Ham
 Sander Berge,,,,no team,Fulham
 Daniel Podence,29,5 ft 4 in,127 lbs,forward,Wolverhampton_Wanderers
@@ -303,16 +302,16 @@ Hee-Chan Hwang,28,5 ft 9 in,169 lbs,forward,Wolverhampton_Wanderers
 Konstantinos Tsimikas,28,5 ft 10 in,169 lbs,defender,Liverpool
 Maxence Lacroix,24,6 ft 2 in,194 lbs,defender,Crystal_Palace
 Guglielmo Vicario,28,6 ft 2 in,182 lbs,goalie,Tottenham
-Matthew Cash,27,6 ft 1,NA,Right-back,Aston_Villa
+Matthew Cash,27,6 ft 1 in,NA,Right-back,Aston_Villa
 Conor Townsend,31,5 ft 6 in,136 lbs,defender,Ipswich
 Antonee Robinson,27,5 ft 11 in,160 lbs,defender,Fulham
-Jacob Ramsey,23,5 ft 1,NA,Attacking midfielder,Aston_Villa
+Jacob Ramsey,23,5 ft 11 in,NA,Attacking midfielder,Aston_Villa
 Rúben Dias,27,6 ft 2 in,167 lbs,defender,Manchester_City
 Vladimir Coufal,32,5 ft 8 in,167 lbs,defender,West_Ham
 Malo Gusto,21,5 ft 10 in,163 lbs,defender,Chelsea
-Pape Sarr,46,1.80 m,NA,Midfielder,Tottenham
+Pape Sarr,46,5 ft 11 in,NA,Midfielder,Tottenham
 Robert Sánchez,27,6 ft 6 in,198 lbs,goalie,Chelsea
-Radu Dragusin,22,1.91 m,NA,Defender,Tottenham
+Radu Dragusin,22,6 ft 3 in,NA,Defender,Tottenham
 Elliot Anderson,22,5 ft 10 in,163 lbs,midfielder,Nottingham_Forest
 Kevin Schade,22,6 ft 0 in,163 lbs,forward,Brentford
 Christian Walton,29,6 ft 5 in,165 lbs,goalie,Ipswich
@@ -321,32 +320,32 @@ Jaden Philogene-Bidace,22,5 ft 11 in,147 lbs,forward,Aston_Villa
 Chimuanya Ugochukwu,20,6 ft 2 in,180 lbs,midfielder,Southampton
 Daniel Jebbison,21,6 ft 2 in,185 lbs,forward,Bournemouth
 Valentino Livramento,22,5 ft 11 in,152 lbs,defender,Newcastle_United
-Anthony Elanga,22,1.78 m,NA,"Forward, winger",Nottingham_Forest
+Anthony Elanga,22,5 ft 10 in,154 lbs,forward,Nottingham_Forest
 Tim Iroegbunam,21,6 ft 0 in,171 lbs,midfielder,Everton
 William Osula,21,6 ft 3 in,176 lbs,forward,Newcastle_United
-Kamaldeen Sulemana,22,1.74 m,NA,"Winger, forward",Southampton
+Kamaldeen Sulemana,22,5 ft 9 in,NA,"Winger, forward",Southampton
 David Raya,29,6 ft 0 in,176 lbs,goalie,Arsenal
 Kristoffer Ajer,26,6 ft 5 in,185 lbs,defender,Brentford
 Frank Onyeka,26,6 ft 0 in,171 lbs,midfielder,Brentford
 Mads Roerslev,25,,,no team,Brentford
-Kiernan Dewsbury-Hall,26,5 ft 1,NA,Midfielder,Chelsea
+Kiernan Dewsbury-Hall,26,5 ft 10 in,NA,Midfielder,Chelsea
 José Sá,31,6 ft 3 in,185 lbs,goalie,Wolverhampton_Wanderers
 Jesper Lindstrom,24,5 ft 11 in,145 lbs,midfielder,Everton
 Dominik Szoboszlai,24,6 ft 1 in,163 lbs,midfielder,Liverpool
-Yerson Mosquera,23,1.88 m,NA,Centre-back,Wolverhampton_Wanderers
+Yerson Mosquera,23,6 ft 2 in,NA,Centre-back,Wolverhampton_Wanderers
 Romeo Lavia,20,5 ft 11 in,167 lbs,midfielder,Chelsea
 Jakub Kiwior,24,6 ft 2 in,165 lbs,defender,Arsenal
 Lamare Bogarde,20,,,midfielder,Aston_Villa
 Jeremy Sarmiento,22,5 ft 10 in,154 lbs,forward,Brighton
-Micky van de Ven,23,1.93 m,NA,"Centre-back, left-back",Tottenham
+Micky van de Ven,23,6 ft 4 in,NA,"Centre-back, left-back",Tottenham
 Samuel Edozie,21,5 ft 11 in,174 lbs,forward,Southampton
 Conor Bradley,21,5 ft 11 in,167 lbs,defender,Liverpool
-James McAtee,22,5 ft 1,NA,"Midfielder, winger",Manchester_City
+James McAtee,22,5 ft 11 in,NA,"Midfielder, winger",Manchester_City
 Kasey McAteer,22,5 ft 9 in,152 lbs,midfielder,Leicester
 Archie Gray,18,6 ft 1 in,174 lbs,midfielder,Tottenham
 Jarell Quansah,21,6 ft 2 in,185 lbs,defender,Liverpool
 Lewis Hall,20,5 ft 10 in,163 lbs,defender,Newcastle_United
-Vitalii Mykolenko,25,1.80 m,NA,Left-back,Everton
+Vitalii Mykolenko,25,5 ft 11 in,NA,Left-back,Everton
 Toti,37,,,,Wolverhampton_Wanderers
 Jens Cajuste,25,6 ft 2 in,170 lbs,,Ipswich
 Chiquinho,29,5 ft 8 in,146 lbs,midfielder,Wolverhampton_Wanderers
@@ -373,16 +372,16 @@ Ethan Nwaneri,17,5 ft 9 in,160 lbs,forward,Arsenal
 Ryan Trevitt,21,5 ft 6 in,143 lbs,midfielder,Brentford
 Chadi Riad,21,6 ft 1 in,187 lbs,defender,Crystal_Palace
 Kobbie Mainoo,19,5 ft 8 in,156 lbs,midfielder,Manchester_United
-Carlos Alcaraz,,1.83 m,NA,,Southampton
+Carlos Alcaraz,,6 ft 0 in,NA,,Southampton
 Mykhailo Mudryk,23,5 ft 8 in,134 lbs,forward,Chelsea
 Brajan Gruda,20,5 ft 10 in,154 lbs,forward,Brighton
 Danilo,42,,,,Nottingham_Forest
 Enzo Fernández,22,,,midfielder,Chelsea
 James Bree,26,5 ft 10 in,163 lbs,defender,Southampton
 Paul Onuachu,30,6 ft 7 in,185 lbs,forward,Southampton
-Victor Kristiansen,21,1.81 m,NA,Left-back,Leicester
+Victor Kristiansen,21,5 ft 11 in,NA,Left-back,Leicester
 Renato Veiga,21,,,no team,Chelsea
-Yasin Ayari,21,1.72 m,NA,Midfielder,Brighton
+Yasin Ayari,21,5 ft 8 in,NA,Midfielder,Brighton
 Illia Zabarnyi,22,6 ft 1 in,178 lbs,defender,Bournemouth
 Samuel Amo-Ameyaw,18,5 ft 8 in,154 lbs,midfielder,Southampton
 Marc Guiu,18,6 ft 0 in,174 lbs,forward,Chelsea
@@ -394,11 +393,11 @@ Calvin Bassey,24,,,defender,Fulham
 Sávio,40,,,defender,Manchester_City
 Julián Araujo,23,5 ft 8 in,149 lbs,defender,Bournemouth
 Manuel Ugarte,23,5 ft 11 in,169 lbs,midfielder,Manchester_United
-Yehor Yarmolyuk,20,1.80 m,NA,Central midfielder,Brentford
+Yehor Yarmolyuk,20,5 ft 11 in,NA,Central midfielder,Brentford
 Ian Maatsen,22,5 ft 5 in,143 lbs,defender,Aston_Villa
-Ben Brereton Díaz,25,6 ft 1,NA,"Forward, winger",Southampton
+Ben Brereton Díaz,25,6 ft 1 in,NA,"Forward, winger",Southampton
 Edson Álvarez,27,6 ft 1 in,160 lbs,midfielder,West_Ham
-Dean Huijsen,19,1.95 m,NA,Centre-back,Bournemouth
+Dean Huijsen,19,6 ft 5 in,NA,Centre-back,Bournemouth
 Alex Scott,40,,,defender,Bournemouth
 Myles Lewis-Skelly,18,5 ft 10 in,165 lbs,midfielder,Arsenal
 Daniel Muñoz,28,5 ft 11 in,152 lbs,defender,Crystal_Palace
@@ -417,12 +416,12 @@ Cameron Burgess,29,6 ft 4 in,205 lbs,defender,Ipswich
 Rodrigo Gomes,31,6 ft 1 in,202 lbs,no team,Wolverhampton_Wanderers
 Harrison Armstrong,17,6 ft 0 in,160 lbs,midfielder,Everton
 Mats Wieffer,25,6 ft 2 in,182 lbs,midfielder,Brighton
-Eric da Silva Moreira,18,1.85 m,NA,"Right-back, right winger",Nottingham_Forest
-Jota Silva,25,1.79 m,NA,Winger,Nottingham_Forest
-Andy Irving,24,1.77 m,NA,Midfielder,West_Ham
+Eric da Silva Moreira,18,6 ft 1 in,NA,"Right-back, right winger",Nottingham_Forest
+Jota Silva,25,5 ft 10 in,NA,Winger,Nottingham_Forest
+Andy Irving,24,5 ft 10 in,NA,Midfielder,West_Ham
 Kosta Nedeljkovic,18,6 ft 0 in,158 lbs,defender,Aston_Villa
 Mads Hermansen,24,6 ft 1 in,171 lbs,goalie,Leicester
-Abdul Fatawu,20,1.77 m,NA,Winger,Leicester
+Abdul Fatawu,20,5 ft 10 in,NA,Winger,Leicester
 Lucas Bergvall,18,6 ft 1 in,198 lbs,midfielder,Tottenham
 Roman Dixon,19,,,defender,Everton
 George Edmundson,27,6 ft 2 in,165 lbs,defender,Ipswich

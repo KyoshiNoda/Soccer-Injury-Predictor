@@ -1,3 +1,6 @@
+import re
+
+
 def parse_player_info(data):
     return [
         [
@@ -47,7 +50,7 @@ def get_upcoming_match(df):
     if not upcoming_matches.empty:
         return (upcoming_matches.iloc[0].datetime,
                 get_stadium_location(upcoming_matches.iloc[0].h)
-        )
+                )
     else:
         return "No upcoming matches found"
 
@@ -76,3 +79,22 @@ def get_stadium_location(home_team):
         "Southampton": "St Mary's Stadium, Southampton, UK"
     }
     return team_stadiums[home_team['title']]
+
+
+def extract_formatted_height(height_str):
+    ft_in_match = re.search(r'(\d+)\s*ft\s*(\d+)?\s*in', height_str)
+
+    if ft_in_match:
+        feet = int(ft_in_match.group(1))
+        inches = int(ft_in_match.group(2)) if ft_in_match.group(2) else 0
+        return f"{feet} ft {inches} in"
+
+    meters_match = re.search(r'(\d+\.\d+)\s*m', height_str)
+    if meters_match:
+        meters = float(meters_match.group(1))
+        total_inches = round(meters * 39.3701)
+        feet = total_inches // 12
+        inches = total_inches % 12
+        return f"{feet} ft {inches} in"
+
+    raise ValueError(f"Invalid height format: {height_str}")

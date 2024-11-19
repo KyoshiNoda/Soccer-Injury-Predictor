@@ -196,7 +196,7 @@ def deeper_player_scrape(player_name, result):
 
         if height_row:
             height = height_row.find('td', class_='infobox-data').text.strip()
-            result['height'] = height[0:6]
+            result['height'] = extract_formatted_height(height)
 
         if any([dob_row, position_row, height_row]):
             return result
