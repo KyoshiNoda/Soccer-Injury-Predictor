@@ -127,8 +127,11 @@ def get_player_biometrics(player_name):
     if position_tag:
         position_text = position_tag.get_text(strip=True)
         parts = position_text.split(" - ")
-        if len(parts) > 1:
+        if len(parts) == 2:
+            player_info["position"] = parts[0].lower()
+        if len(parts) == 3:
             player_info["position"] = parts[1].lower()
+
     else:
         deeper_player_scrape(player_name, player_info)
         return player_info
