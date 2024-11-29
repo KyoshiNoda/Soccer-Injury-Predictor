@@ -108,7 +108,20 @@ def create_injuries_dataframe(data):
         return pd.DataFrame()
 
 
-def get_player_biometrics(player_name):
+def get_player_biometrics(player_name, df):
+    player = df[df['player_name'] == player_name]
+    if not player.empty:
+        return {
+            'age': player.iloc[0]['age'],
+            'height': player.iloc[0]['height'],
+            'weight': player.iloc[0]['weight'],
+            'position': player.iloc[0]['position']
+        }
+    else:
+        return player_scrape(player_name)
+
+
+def player_scrape(player_name):
     parsed_player = player_name.replace(" ", "-")
     response = requests.get(
         f"https://www.foxsports.com/soccer/{unidecode(parsed_player.lower())}-player-bio")

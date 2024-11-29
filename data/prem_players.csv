@@ -1,3 +1,4 @@
+player_name,age,height,weight,position,team
 Erling Haaland,24,6 ft 4 in,194 lbs,forward,Manchester_City
 Mohamed Salah,32,5 ft 8 in,156 lbs,forward,Liverpool
 Chris Wood,32,6 ft 3 in,200 lbs,forward,Nottingham_Forest
@@ -342,7 +343,7 @@ Micky van de Ven,23,6 ft 4 in,NA,"Centre-back, left-back",Tottenham
 Samuel Edozie,21,5 ft 11 in,174 lbs,forward,Southampton
 Conor Bradley,21,5 ft 11 in,167 lbs,defender,Liverpool
 James McAtee,22,5 ft 11 in,NA,"Midfielder, winger",Manchester_City
-Kasey McAteer,22,5 ft 9 in,152 lbs,midfielder,Leicester
+Kasey McAteer,23,5 ft 9 in,152 lbs,midfielder,Leicester
 Archie Gray,18,6 ft 1 in,174 lbs,midfielder,Tottenham
 Jarell Quansah,21,6 ft 2 in,185 lbs,defender,Liverpool
 Lewis Hall,20,5 ft 10 in,163 lbs,defender,Newcastle_United
@@ -350,10 +351,9 @@ Vitalii Mykolenko,25,5 ft 11 in,NA,Left-back,Everton
 Toti,37,,,,Wolverhampton_Wanderers
 Jens Cajuste,25,6 ft 2 in,170 lbs,,Ipswich
 Chiquinho,29,5 ft 8 in,146 lbs,midfielder,Wolverhampton_Wanderers
-Omari Hutchinson,21,5 ft 8 in,138 lbs,midfielder,Ipswich
 Noussair Mazraoui,27,6 ft 0 in,143 lbs,defender,Manchester_United
 Ryan Gravenberch,22,6 ft 2 in,169 lbs,midfielder,Liverpool
-Jay Stansfield,21,,NA,Forward,Fulham
+Jay Stansfield,22,,NA,Forward,Fulham
 Sepp van den Berg,22,6 ft 3 in,191 lbs,defender,Brentford
 Harry Toffolo,29,6 ft 0 in,156 lbs,defender,Nottingham_Forest
 Djed Spence,24,6 ft 0 in,157 lbs,defender,Tottenham
@@ -361,15 +361,14 @@ Lisandro Martínez,26,5 ft 8 in,158 lbs,defender,Manchester_United
 Levi Colwill,21,6 ft 1 in,178 lbs,defender,Chelsea
 Jan Paul van Hecke,24,6 ft 2 in,182 lbs,defender,Brighton
 Keane Lewis-Potter,23,5 ft 6 in,147 lbs,forward,Brentford
-Wilson Odobert,19,5 ft 11 in,169 lbs,forward,Tottenham
+Wilson Odobert,20,5 ft 11 in,169 lbs,forward,Tottenham
 Flynn Downes,,,,forward,Southampton
-Rico Lewis,19,5 ft 6 in,145 lbs,defender,Manchester_City
+Rico Lewis,20,5 ft 6 in,145 lbs,defender,Manchester_City
 Marcos Senesi,27,6 ft 0 in,176 lbs,defender,Bournemouth
 André Onana,28,6 ft 2 in,200 lbs,goalie,Manchester_United
 Santiago Bueno,26,6 ft 2 in,167 lbs,defender,Wolverhampton_Wanderers
 Matheus Nunes,26,6 ft 0 in,171 lbs,midfielder,Manchester_City
 Julio Enciso,20,5 ft 8 in,138 lbs,forward,Brighton
-Ethan Nwaneri,17,5 ft 9 in,160 lbs,forward,Arsenal
 Ryan Trevitt,21,5 ft 6 in,143 lbs,midfielder,Brentford
 Chadi Riad,21,6 ft 1 in,187 lbs,defender,Crystal_Palace
 Kobbie Mainoo,19,5 ft 8 in,156 lbs,midfielder,Manchester_United
@@ -377,7 +376,6 @@ Carlos Alcaraz,,6 ft 0 in,NA,,Southampton
 Mykhailo Mudryk,23,5 ft 8 in,134 lbs,forward,Chelsea
 Brajan Gruda,20,5 ft 10 in,154 lbs,forward,Brighton
 Danilo,42,,,,Nottingham_Forest
-Enzo Fernández,22,,,midfielder,Chelsea
 James Bree,26,5 ft 10 in,163 lbs,defender,Southampton
 Paul Onuachu,30,6 ft 7 in,185 lbs,forward,Southampton
 Victor Kristiansen,21,5 ft 11 in,NA,Left-back,Leicester
@@ -404,11 +402,11 @@ Myles Lewis-Skelly,18,5 ft 10 in,165 lbs,midfielder,Arsenal
 Daniel Muñoz,28,5 ft 11 in,152 lbs,defender,Crystal_Palace
 Adam Wharton,20,5 ft 11 in,176 lbs,midfielder,Crystal_Palace
 Toby Collyer,20,5 ft 10 in,165 lbs,midfielder,Manchester_United
-Mikey Moore,17,,,forward,Tottenham
+Mikey Moore,17,5 ft 10 in,165 lbs,forward,Tottenham
 Jacob Greaves,24,6 ft 3 in,180 lbs,defender,Ipswich
 Luke Woolfenden,,,,midfielder,Ipswich
 Massimo Luongo,32,5 ft 9 in,167 lbs,midfielder,Ipswich
-Wes Burns,29,5 ft 8 in,149 lbs,forward,Ipswich
+Wes Burns,30,5 ft 8 in,149 lbs,forward,Ipswich
 Conor Chaplin,27,5 ft 10 in,154 lbs,forward,Ipswich
 Ali Al-Hamadi,22,6 ft 1 in,180 lbs,forward,Ipswich
 Marcus Harness,28,5 ft 11 in,154 lbs,forward,Ipswich
@@ -423,20 +421,3 @@ Andy Irving,24,5 ft 10 in,NA,Midfielder,West_Ham
 Kosta Nedeljkovic,18,6 ft 0 in,158 lbs,defender,Aston_Villa
 Mads Hermansen,24,6 ft 1 in,171 lbs,goalie,Leicester
 Abdul Fatawu,20,5 ft 10 in,NA,Winger,Leicester
-Lucas Bergvall,18,6 ft 1 in,198 lbs,midfielder,Tottenham
-Roman Dixon,19,,,defender,Everton
-George Edmundson,27,6 ft 2 in,165 lbs,defender,Ipswich
-Mateus Fernandes,20,5 ft 10 in,158 lbs,midfielder,Southampton
-Jack Clarke,23,5 ft 11 in,160 lbs,forward,Ipswich
-Bilal El Khannouss,20,5 ft 10 in,154 lbs,midfielder,Leicester
-André,34,6 ft 0 in,169 lbs,forward,Wolverhampton_Wanderers
-Luis Guilherme,32,6 ft 1 in,179 lbs,goalie,West_Ham
-Justin Devenny,21,,,midfielder,Crystal_Palace
-Asher Agbinone,19,,,forward,Crystal_Palace
-Ross Stewart,29,6 ft 3 in,156 lbs,goalie,Southampton
-Morato,32,5 ft 6 in,149 lbs,forward,Nottingham_Forest
-Carlos Forbs,20,,,forward,Wolverhampton_Wanderers
-Vítezslav Jaros,23,6 ft 1 in,160 lbs,goalie,Liverpool
-Caleb Kporha,18,,,defender,Crystal_Palace
-Ryan Manning,28,5 ft 7 in,145 lbs,midfielder,Southampton
-Jahmai Simpson-Pusey,19,,,defender,Manchester_City

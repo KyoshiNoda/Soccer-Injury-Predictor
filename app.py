@@ -36,6 +36,7 @@ Feel free to print out the dataframe if you would like to see data.
 Edge case: multiple teams in single season: EX: Cole Palmer: Man City and Chelsea
 """
 df_prem_2024 = league_player_data("EPL", "2024")
+df_player_biometrics = pd.read_csv('data/prem_players.csv') # 
 # print(df_prem_2024)
 
 """
@@ -87,7 +88,7 @@ def create_master_dataframe(df_prem_2024):
         team_name = transform_team_name(player['team_title'])
 
         try:
-            player_biometrics = get_player_biometrics(player_name)
+            player_biometrics = get_player_biometrics(player_name, df_player_biometrics)
             # next_match_weather = get_player_weather_prediction(player_name)
         except Exception as e:
             print(f"Error retrieving biometrics for {player_name}: {e}")
@@ -100,7 +101,7 @@ def create_master_dataframe(df_prem_2024):
             'position': player_biometrics['position'],
             'team': team_name,
         }
-        add_player_CSV(data_entry)
+        # add_player_CSV(data_entry)
         data_entries.append(data_entry)
 
     master_dataframe = pd.DataFrame(data_entries)
