@@ -121,33 +121,26 @@ def get_player_biometrics(player_name, df):
     name_candidates = is_snowflake_player(player_name)
 
     if name_candidates:
-        web_scrape(player_name, name_candidates)
+        return web_scrape(player_name, name_candidates)
     else:
-        return "error" # TODO throw exception... add missing player.
-    
+        add_missing_player(player_name, f"new player {player_name} not found in PREM.")
+        raise Exception("Missing Player!")
 
-def is_snowflake_player(player_name):
-    players = {
-        'Harry Clarke' : [],
-    }
 
-    if player_name in players:
-        return players.get(players)
-    else:
-        return "error" # TODO add exceptions
-    
 def web_scrape(original, candidates):
-    """WIP"""
+    result = None
     for name in candidates:
-
-        
-
-
-
-    add_missing_player(original, f"player {original} cannot be found online.")
-
-        
-
+        result = fox_sport_scrape(name)
+        if result:
+            break
+        result = wiki_scrape(name)
+        if result:
+            break
+    
+    if not result:
+        return add_missing_player(original, f"player {original} cannot be found online.")
+    else:
+        return result
 
 def fox_sport_scrape(player_name):
     parsed_player = player_name.replace(" ", "-")
@@ -164,7 +157,7 @@ def fox_sport_scrape(player_name):
 
     position_tag = soup.find(
         'span', class_='fs-10 ff-sm-n cl-wht opac-7 mg-t-5 nowrap flex-col-left tab-mob-only-flex')
-    
+
     if not position_tag:
         return None
 
@@ -174,7 +167,6 @@ def fox_sport_scrape(player_name):
         player_info["position"] = parts[0].lower()
     if len(parts) == 3:
         player_info["position"] = parts[1].lower()
-
 
     table = soup.find('table', class_='data-table')
     if table:

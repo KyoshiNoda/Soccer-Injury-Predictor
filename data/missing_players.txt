@@ -1,12 +1,55 @@
-Evanilson - Data table not found.
-Joe Ayodele-Aribo - Data table not found.
-Matt O&#039;Riley - Data table not found.
-Joseph Gomez - Data table not found.
-Kepa - Data table not found.
-Estupiñán - Data table not found.
-Tommy Doyle - Data table not found.
-Dara O&#039;Shea - Data table not found.
-Antony - Data table not found.
-Jake O&#039;Brien - Data table not found.
-Yunus Konak - Data table not found.
-Harry Clarke - Data table not found.
+Enzo Fernández - new player Enzo Fernández not found in PREM.
+Patson Daka - new player Patson Daka not found in PREM.
+Omari Hutchinson - new player Omari Hutchinson not found in PREM.
+Ethan Nwaneri - new player Ethan Nwaneri not found in PREM.
+Mateus Fernandes - new player Mateus Fernandes not found in PREM.
+Bilal El Khannouss - new player Bilal El Khannouss not found in PREM.
+Justin Devenny - new player Justin Devenny not found in PREM.
+Matt O&#039;Riley - new player Matt O&#039;Riley not found in PREM.
+Callum Wilson - new player Callum Wilson not found in PREM.
+Danny Ward - new player Danny Ward not found in PREM.
+Fraser Forster - new player Fraser Forster not found in PREM.
+Luke Shaw - new player Luke Shaw not found in PREM.
+Tyrone Mings - new player Tyrone Mings not found in PREM.
+Kepa - new player Kepa not found in PREM.
+Estupiñán - new player Estupiñán not found in PREM.
+Martin Dubravka - new player Martin Dubravka not found in PREM.
+Ryan Sessegnon - new player Ryan Sessegnon not found in PREM.
+Robin Olsen - new player Robin Olsen not found in PREM.
+Max Aarons - new player Max Aarons not found in PREM.
+Armando Broja - new player Armando Broja not found in PREM.
+Tommy Doyle - new player Tommy Doyle not found in PREM.
+Luke Thomas - new player Luke Thomas not found in PREM.
+Dara O&#039;Shea - new player Dara O&#039;Shea not found in PREM.
+Stefan Ortega Moreno - new player Stefan Ortega Moreno not found in PREM.
+Filip Jorgensen - new player Filip Jorgensen not found in PREM.
+Nathan Broadhead - new player Nathan Broadhead not found in PREM.
+Paris Maghoma - new player Paris Maghoma not found in PREM.
+Nathan Patterson - new player Nathan Patterson not found in PREM.
+Leny Yoro - new player Leny Yoro not found in PREM.
+James Hill - new player James Hill not found in PREM.
+Tyrell Malacia - new player Tyrell Malacia not found in PREM.
+Antony - new player Antony not found in PREM.
+Jake O&#039;Brien - new player Jake O&#039;Brien not found in PREM.
+Joshua King - new player Joshua King not found in PREM.
+Yunus Konak - new player Yunus Konak not found in PREM.
+Joe Lumley - new player Joe Lumley not found in PREM.
+Nathan Wood - new player Nathan Wood not found in PREM.
+Lucas Bergvall - new player Lucas Bergvall not found in PREM.
+Roman Dixon - new player Roman Dixon not found in PREM.
+George Edmundson - new player George Edmundson not found in PREM.
+Jack Clarke - new player Jack Clarke not found in PREM.
+André - new player André not found in PREM.
+Luis Guilherme - new player Luis Guilherme not found in PREM.
+Asher Agbinone - new player Asher Agbinone not found in PREM.
+Ross Stewart - new player Ross Stewart not found in PREM.
+Morato - new player Morato not found in PREM.
+Carlos Forbs - new player Carlos Forbs not found in PREM.
+Vítezslav Jaros - new player Vítezslav Jaros not found in PREM.
+Alfie Pond - new player Alfie Pond not found in PREM.
+Will Lankshear - new player Will Lankshear not found in PREM.
+Caleb Kporha - new player Caleb Kporha not found in PREM.
+Ryan Manning - new player Ryan Manning not found in PREM.
+Jahmai Simpson-Pusey - new player Jahmai Simpson-Pusey not found in PREM.
+Thiago - new player Thiago not found in PREM.
+Ronnie Edwards - new player Ronnie Edwards not found in PREM.

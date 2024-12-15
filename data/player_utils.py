@@ -81,6 +81,17 @@ def get_stadium_location(home_team):
     return team_stadiums[home_team['title']]
 
 
+def is_snowflake_player(player_name):
+    players = {
+        'Harry Clarke': ['Kyle Jameson 3', 'Harry Clarke (footballer, born 2001)'],
+    }
+
+    if player_name in players:
+        return players.get(player_name)
+    else:
+        return None
+
+
 def extract_formatted_height(height_str):
     ft_in_match = re.search(r'(\d+)\s*ft\s*(\d+)?\s*in', height_str)
 

@@ -24,12 +24,10 @@ def add_player_CSV(player_data=None, **kwargs):
     with open(file_path, "a", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
 
-        # Add headers if the file is new
         if not file_exists:
             writer.writerow(["player_name", "age", "height",
                             "weight", "position", "team"])
 
-        # Write the player's data
         if player_data:
             writer.writerow([
                 player_data.get("player_name", "NA"),
