@@ -110,11 +110,15 @@ def create_master_dataframe(df_prem_2024):
 
 
 # fresh missing_player.txt
-with open("data/missing_players.txt", "w") as file:
-    pass
+# with open("data/missing_players.txt", "w") as file:
+#     pass
 
-master_df = create_master_dataframe(df_prem_2024)
-print(master_df.head())
+# master_df = create_master_dataframe(df_prem_2024)
+# print(master_df.head())
+# df_prem_2024.loc[df_prem_2024['player_name'] == 'Evanilson', 'player_name'] = 'Leo Messi'
+# player = df_prem_2024[df_prem_2024['player_name'] == 'Evanilson']
+
+get_player_biometrics("Harry Clarke", df_player_biometrics)
 
 # X = master_df.drop(['player_name', 'team', 'match_date', 'injury_status'], axis=1)
 # y = master_df['injury_status']

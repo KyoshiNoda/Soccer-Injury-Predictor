@@ -110,6 +110,7 @@ def create_injuries_dataframe(data):
 
 def get_player_biometrics(player_name, df):
     player = df[df['player_name'] == player_name]
+    # TODO: Add weekly checks and job runs.
     if not player.empty:
         return {
             'age': player.iloc[0]['age'],
@@ -117,15 +118,41 @@ def get_player_biometrics(player_name, df):
             'weight': player.iloc[0]['weight'],
             'position': player.iloc[0]['position']
         }
+    name_candidates = is_snowflake_player(player_name)
+
+    if name_candidates:
+        web_scrape(player_name, name_candidates)
     else:
-        return player_scrape(player_name)
+        return "error" # TODO throw exception... add missing player.
+    
+
+def is_snowflake_player(player_name):
+    players = {
+        'Harry Clarke' : [],
+    }
+
+    if player_name in players:
+        return players.get(players)
+    else:
+        return "error" # TODO add exceptions
+    
+def web_scrape(original, candidates):
+    """WIP"""
+    for name in candidates:
+
+        
 
 
-def player_scrape(player_name):
+
+    add_missing_player(original, f"player {original} cannot be found online.")
+
+        
+
+
+def fox_sport_scrape(player_name):
     parsed_player = player_name.replace(" ", "-")
-    response = requests.get(
-        f"https://www.foxsports.com/soccer/{unidecode(parsed_player.lower())}-player-bio")
-
+    endpoint = f"https://www.foxsports.com/soccer/{unidecode(parsed_player.lower())}-player-bio"
+    response = requests.get(endpoint)
     player_info = {
         "height": None,
         "weight": None,
@@ -137,17 +164,17 @@ def player_scrape(player_name):
 
     position_tag = soup.find(
         'span', class_='fs-10 ff-sm-n cl-wht opac-7 mg-t-5 nowrap flex-col-left tab-mob-only-flex')
-    if position_tag:
-        position_text = position_tag.get_text(strip=True)
-        parts = position_text.split(" - ")
-        if len(parts) == 2:
-            player_info["position"] = parts[0].lower()
-        if len(parts) == 3:
-            player_info["position"] = parts[1].lower()
+    
+    if not position_tag:
+        return None
 
-    else:
-        deeper_player_scrape(player_name, player_info)
-        return player_info
+    position_text = position_tag.get_text(strip=True)
+    parts = position_text.split(" - ")
+    if len(parts) == 2:
+        player_info["position"] = parts[0].lower()
+    if len(parts) == 3:
+        player_info["position"] = parts[1].lower()
+
 
     table = soup.find('table', class_='data-table')
     if table:
@@ -184,10 +211,10 @@ We only run this if we couldn't find the player with fox sports
 """
 
 
-def deeper_player_scrape(player_name, result):
+def wiki_scrape(player_name, result):
     parsed_player = player_name.replace(" ", "_")
-    url = f'https://en.wikipedia.org/wiki/{parsed_player}'
-    response = requests.get(url)
+    endpoint = f'https://en.wikipedia.org/wiki/{parsed_player}'
+    response = requests.get(endpoint)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, "html.parser")
 
