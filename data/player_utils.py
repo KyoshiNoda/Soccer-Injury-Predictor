@@ -84,12 +84,85 @@ def get_stadium_location(home_team):
 def is_snowflake_player(player_name):
     players = {
         'Harry Clarke': ['Kyle Jameson 3', 'Harry Clarke (footballer, born 2001)'],
+        'Enzo Fernández': ['Santiago Sosa 3', 'Enzo_Fernández'],
+        'Patson Daka': [],
+        'Omari Hutchinson': [],
+        'Ethan Nwaneri': [],
+        'Mateus Fernandes': [],
+        'Bilal El Khannouss': [],
+        'Justin Devenny': [],
+        'Matt O\'Riley': [],
+        'Callum Wilson': [],
+        'Danny Ward': [],
+        'Fraser Forster': [],
+        'Luke Shaw': [],
+        'Tyrone Mings': [],
+        'Kepa': [],
+        'Estupiñán': [],
+        'Martin Dubravka': [],
+        'Ryan Sessegnon': [],
+        'Robin Olsen': [],
+        'Max Aarons': [],
+        'Armando Broja': [],
+        'Tommy Doyle': [],
+        'Luke Thomas': [],
+        'Dara O\'Shea': [],
+        'Stefan Ortega Moreno': [],
+        'Filip Jorgensen': [],
+        'Nathan Broadhead': [],
+        'Paris Maghoma': [],
+        'Nathan Patterson': [],
+        'Leny Yoro': [],
+        'James Hill': [],
+        'Tyrell Malacia': [],
+        'Antony': [],
+        'Jake O\'Brien': [],
+        'Joshua King': [],
+        'Yunus Konak': [],
+        'Joe Lumley': [],
+        'Nathan Wood': [],
+        'Lucas Bergvall': [],
+        'Roman Dixon': [],
+        'George Edmundson': [],
+        'Jack Clarke': [],
+        'André': [],
+        'Luis Guilherme': [],
+        'Asher Agbinone': [],
+        'Ross Stewart': [],
+        'Morato': [],
+        'Carlos Forbs': [],
+        'Vítezslav Jaros': [],
+        'Alfie Pond': [],
+        'Will Lankshear': [],
+        'Caleb Kporha': [],
+        'Ryan Manning': [],
+        'Jahmai Simpson-Pusey': [],
+        'Thiago': [],
+        'Ronnie Edwards': []
     }
 
     if player_name in players:
         return players.get(player_name)
     else:
         return None
+
+
+def get_missing_players(df, textfile):
+    missing_players = []
+
+    # Read the text file line by line
+    with open(textfile, 'r') as file:
+        for line in file:
+            # Extract the first and last name from the line format
+            parts = line.split(" - ")
+            if len(parts) > 0:
+                full_name = parts[0].strip()  # First and last name combined
+
+                # Check if the player exists in the DataFrame
+                if not df['player_name'].str.contains(full_name, case=False, na=False).any():
+                    missing_players.append(full_name)
+
+    return missing_players
 
 
 def extract_formatted_height(height_str):

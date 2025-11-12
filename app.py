@@ -39,14 +39,6 @@ df_prem_2024 = league_player_data("EPL", "2024")
 df_player_biometrics = pd.read_csv('data/prem_players.csv')
 # print(df_prem_2024)
 
-"""
-Scrapes data from the web to get player biometrics
-sources: wikipedia and foxsports
-Input constraints: Upper case letter for each player. (Has be a professional player)
-"""
-# web_scrape_player = get_player_biometrics("Leon Bailey")
-# print(deeper_player_scrape("Leon Bailey"))
-
 
 """
 Grabs player from the dataframe and attempts to grab the upcoming match
@@ -88,7 +80,8 @@ def create_master_dataframe(df_prem_2024):
         team_name = transform_team_name(player['team_title'])
 
         try:
-            player_biometrics = get_player_biometrics(player_name, df_player_biometrics)
+            player_biometrics = get_player_biometrics(
+                player_name, df_player_biometrics)
             # next_match_weather = get_player_weather_prediction(player_name)
         except Exception as e:
             print(f"Error retrieving biometrics for {player_name}: {e}")
@@ -101,7 +94,7 @@ def create_master_dataframe(df_prem_2024):
             'position': player_biometrics['position'],
             'team': team_name,
         }
-        # add_player_CSV(data_entry)
+        add_player_CSV(data_entry)
         data_entries.append(data_entry)
 
     master_dataframe = pd.DataFrame(data_entries)
@@ -110,11 +103,14 @@ def create_master_dataframe(df_prem_2024):
 
 
 # fresh missing_player.txt
-with open("data/missing_players.txt", "w") as file:
-    pass
+# with open("data/missing_players.txt", "w") as file:
+#     pass
 
-master_df = create_master_dataframe(df_prem_2024)
-print(master_df.head())
+# master_df = create_master_dataframe(df_prem_2024)
+# print(master_df.head())
+
+print(df_prem_2024.loc[df_prem_2024['player_name'] == "Patson Daka"])
+# print(get_missing_players(df_prem_2024, 'data/missing_players.txt'))
 
 # X = master_df.drop(['player_name', 'team', 'match_date', 'injury_status'], axis=1)
 # y = master_df['injury_status']
